@@ -1,0 +1,33 @@
+.navbar{
+    position: fixed top;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 59px;
+    max-height: 59px;
+}
+
+.networks{
+    padding-right: 10px;
+    display: flex;
+}
+
+.networks a{
+    color: rgb(230, 230, 230);
+    border-radius: 50%;
+}
+
+i{
+    max-width: 13px;
+}
+
+p{
+    margin-top: 1%;
+    margin-left: 2%;
+    color: white;
+    font-size: x-large;
+}
+
+#logout{
+    margin-right: .7em;
+}

@@ -1,0 +1,61 @@
+img{
+    width: 100%;
+}
+
+.banner{
+    position: relative;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    min-height: 250px;
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.photo{
+    position: absolute;
+    top: 180px;
+    left: 20px;
+    max-height: 150px;
+    min-height: 150px;
+    max-width: 150px;
+    min-width: 150px; 
+    border-radius: 50%;
+    box-shadow: 0px 0px 7px 5px rgb(255, 255, 255);
+}
+
+.photo img{
+    position: relative;
+    max-height: 150px;
+    border-radius: 50%;
+}
+
+#container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.data{
+    padding-top: 1%;
+    padding-left: 200px;
+    padding-bottom: 1%;
+    overflow: hidden;
+}
+
+#edit-profile{
+    width: 15%;
+    margin-right: 5px;
+    margin-top: 7px;
+    text-align: right;
+}
+
+button{
+    margin: 3px;
+}
+
+p, h3{
+    margin-bottom: -1px;
+}
+
+h3{
+    font-size: x-large;
+}

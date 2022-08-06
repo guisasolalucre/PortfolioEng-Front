@@ -1,0 +1,157 @@
+<div class="tab">
+    <div class="tabs">
+        <ul>
+            <li (click)="change('about')"
+                [ngClass]="{'selected': id==='about'}">About me</li>
+            <li (click)="change('education')"
+                [ngClass]="{'selected': id==='education'}">Education</li>
+            <li (click)="change('experience')"
+                [ngClass]="{'selected': id==='experience'}">Experience</li>
+            <li (click)="change('skills')"
+                [ngClass]="{'selected': id==='skills'}">Skills</li>
+            <li (click)="change('proyects')"
+                [ngClass]="{'selected': id==='proyects'}">Proyects</li>
+        </ul>
+    </div>
+
+    <div class="content">
+
+        <div class="content-value" *ngIf="id === 'about'">
+            <ul><p>{{person.about}}</p></ul>
+        </div>
+
+        <div class="content-value" *ngIf="id === 'education'">
+            <ul>
+                <li *ngFor="let education of listEducation">
+                    <div class="cvtitle">
+                        <h5>{{education.career}}</h5>
+                        <div class="edition">
+                            <app-edit-edu
+                                *ngIf="this.logged"
+                                [education]="this.education"
+                            ></app-edit-edu>
+                            
+                            <app-delete-edu
+                                *ngIf="this.logged"
+                                [education]="this.education"
+                            ></app-delete-edu>
+                        </div>
+                    </div>
+                    <h6>{{education.institution}}</h6>
+                    <p>{{education.ubication}}</p>
+                    <p id="duration">{{education.start}} - {{education.finish}}</p>
+                </li>
+                <li>
+                    <div class="cvtitle">
+                        <app-add-edu
+                            *ngIf="this.logged"
+                            (onAddEducation)="newEducation($event)"
+                        ></app-add-edu>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-value" *ngIf="id === 'experience'">
+            <ul>
+                <li *ngFor="let experience of listExperience">
+                    <div class="cvtitle">
+                        <h5>{{experience.job}}</h5>
+                        <div class="edition">
+                            <app-edit-exp
+                                *ngIf="this.logged"
+                                [experience]="this.experience"
+                            ></app-edit-exp>
+
+                            <app-delete-exp
+                                *ngIf="this.logged"
+                                [experience]="this.experience"
+                            ></app-delete-exp>
+
+                        </div>
+                    </div>
+                    <p>{{experience.company}}</p>
+                    <p>{{experience.description}}</p>
+                    <p id="duracion">{{experience.start}} - {{experience.finish}}</p>
+                </li>
+                <li>
+                    <div class="cvtitle">
+                        <app-add-exp
+                            *ngIf="this.logged"
+                            (onAddExperience)="newExperience($event)"
+                        ></app-add-exp>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-value" *ngIf="id === 'skills'">
+            <ul>
+                <li *ngFor="let skill of listSkills">
+                    <div class="cvtitle">
+                        <h5 class="skill">{{skill.name}}</h5>
+                        <div class="edition">
+                            <app-edit-skill
+                                *ngIf="this.logged"
+                                [skill]="this.skill"
+                            ></app-edit-skill>
+
+                            <app-delete-skill
+                                *ngIf="this.logged"
+                                [skill]="this.skill"
+                            ></app-delete-skill>
+
+                        </div>
+                    </div>
+                    <mat-progress-bar 
+                        mode="determinate"
+                        color="cyan"
+                        [value]="skill.percent"
+                    ></mat-progress-bar>
+                </li>
+                <li>
+                    <div class="cvtitle">
+                        <app-add-skill
+                            *ngIf="this.logged"
+                            (onAddSkill)="newSkill($event)"
+                        ></app-add-skill>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-value" *ngIf="id === 'proyects'">
+            <ul>
+                <li *ngFor="let proyect of listProyects">
+                    <div class="cvtitle">
+                        <h5><a href="{{proyect.url}}">{{proyect.name}}</a></h5>
+                        <div class="edition">
+                            <app-edit-proy
+                                *ngIf="this.logged"
+                                [proyect]="this.proyect"
+                            ></app-edit-proy>
+
+                            <app-delete-proy
+                                *ngIf="this.logged"
+                                [proyect]="this.proyect"
+                            ></app-delete-proy>
+
+                        </div>
+                    </div>
+                    <p>{{proyect.description}}</p>
+                    <p id="duration">{{proyect.start}} - {{proyect.finish}}</p>
+                </li>
+                <li>
+                    <div class="cvtitle">
+                        <app-add-proy
+                            *ngIf="this.logged"
+                            (onAddProyect)="newProyect($event)"
+                        ></app-add-proy>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

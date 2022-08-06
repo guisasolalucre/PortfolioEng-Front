@@ -1,0 +1,95 @@
+.tab{
+    border: 1px solid #E0E0E0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+.tabs{
+    border-bottom: 1px solid #E0E0E0;
+    background-color: #212121;
+}
+
+.tabs ul{
+    padding: 10px;
+    display: inline-block;
+    margin: 0;
+}
+
+.tabs ul li{
+    display: inline-block;
+    border-right: 2px solid #fff;
+    color: white;
+    font-size: 16px;
+    padding: 0 24px;
+    font-weight: 300;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+
+.tabs ul li:last-child{
+    border-right: none;
+}
+
+.content{
+    padding: 2%;
+}
+
+.content-value ul li{
+    padding-bottom: 1%;
+    border-bottom: 1px solid gray;
+    margin-bottom: 1%;
+}
+
+.content-value ul li:last-child{
+    border-bottom: none;
+    margin-bottom: -2%;
+}
+
+.selected{
+    text-decoration: underline double;
+    font-weight: 500 !important;
+}
+
+.cvtitle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.edition{
+    width: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+p, h5, h6{
+    margin-bottom: -1px;
+}
+
+h5{
+    text-decoration: underline solid 1px;
+    font-size: large;
+    font-weight: 500;
+}
+
+.skill{
+    text-decoration: none !important;
+}
+
+h6{
+    font-size: medium;
+    font-weight: 500;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: cornflowerblue;
+}
+
+::ng-deep .mat-progress-bar {
+    border-radius: 3px ;
+    height: 8px !important;
+}

@@ -1,0 +1,43 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <p>Portfolio</p>
+
+    <ng-template [ngIf]="window === 'portfolio'">
+
+        <div class="networks">
+
+            <a class="btn btn-outline-light m-1" href="https://www.linkedin.com/in/{{person.linkedin}}/"
+                target="_blank" role="button">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a class="btn btn-outline-light m-1" href="https://github.com/{{person.github}}" target="_blank"
+                role="button">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a class="btn btn-outline-light m-1" href="https://api.whatsapp.com/send?phone={{person.whatsapp}}" target="_blank"
+                role="button">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a class="btn btn-outline-light m-1" href="mailto:{{person.email}}?subject=Portfolio web&" target="_blank"
+                role="button">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+        </div> 
+        
+        <div *ngIf=" this.logged; else login">
+            <button id="logout" class="btn btn-outline-danger my-2 my-sm-0" type="button"
+                    (click)="logOut()"
+            >Logout</button>
+            
+        </div>
+        <ng-template #login>
+            <button id="login" class="btn btn-outline-success my-2 my-sm-0" type="button"
+                    [routerLink]="['/login']"
+            >Login</button>
+        </ng-template>
+
+    </ng-template>
+</nav>

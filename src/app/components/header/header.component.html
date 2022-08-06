@@ -1,0 +1,50 @@
+<div class="card info">
+
+  <div *ngIf="(person.banner == null || person.banner == '');
+        then nobanner 
+        else withbanner"
+        class="banner"></div>
+  <ng-template #nobanner><img src="../../../assets/nobanner.jpg" alt="banner" class="banner"></ng-template>
+  <ng-template #withbanner><img src="{{person.banner}}" alt="banner" class="banner"></ng-template>
+
+
+  <div *ngIf="(person.photo == null || person.photo == '');
+        then nophoto 
+        else withphoto"
+        class="photo">
+  </div>
+  <ng-template #nophoto><img src="../../../assets/nophoto.jpg" alt="photo" class="photo"></ng-template>
+  <ng-template #withphoto><img src="{{person.photo}}" alt="photo" class="photo"></ng-template>
+
+  <div id="container">
+
+    <div *ngIf="(person.name == null || person.name == '');
+        then nodata 
+        else alldata"
+        class="photo">
+    </div>
+    <ng-template #nodata>
+      <div class="data">
+        <h3 id="name">Full name</h3>
+        <p id="description">Ocupation</p>
+        <p id="ubication">Ubication</p>
+    </div>
+    </ng-template>
+    <ng-template #alldata>
+      <div class="data">
+        <h3 id="name">{{person.name}} {{person.surname}}</h3>
+        <p id="description">{{person.ocupation}}</p>
+        <p id="ubication">{{person.ubication}}</p>
+    </div>
+    </ng-template>
+  
+    <div id="edit-profile">
+      <app-edit-info
+        *ngIf="this.logged"
+        [person]="this.person"
+      ></app-edit-info>
+    </div>
+
+  </div>
+
+</div>

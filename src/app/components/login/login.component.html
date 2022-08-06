@@ -1,0 +1,26 @@
+<div id="loginpage">
+
+  <app-navbar [window]='window'></app-navbar>
+
+  <div class="card">
+    <h2>Log in</h2>
+    <form class="add-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="user">User</label>
+        <input type="text" class="form-control" name="user" formControlName="us">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" formControlName="pass">
+      </div>
+      <button type="submit" class="btn btn-success"
+      >Log in
+      </button>
+    </form>
+  </div>
+
+  <div id="footer" class="footer sticky-bottom">
+    <app-footer></app-footer>
+  </div>
+
+</div>

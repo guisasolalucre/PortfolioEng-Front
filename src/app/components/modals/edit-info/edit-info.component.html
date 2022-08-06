@@ -1,0 +1,119 @@
+<i 
+    type="button" 
+    class="fa-solid fa-pencil" 
+    id="toggleEditInfo" 
+    (click)="modal.open(content)">
+</i>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Edit profile</h5>
+        <i class="fa-solid fa-xmark" (click)="modal.dismiss()"></i>
+    </div>
+    <div class="modal-body">
+        <form class="add-form" 
+            id="formul" 
+            #formDetailUser="ngForm" 
+            (ngSubmit)="onSubmit(formDetailUser)"
+        >
+            <div class="form-control">
+                <label for="about">About me</label>
+                <input 
+                    type="text" 
+                    name="about"
+                    id="about" 
+                    placeholder="About me" 
+                    [(ngModel)]="about" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="ocupation">Ocupation</label>
+                <input 
+                    type="text" 
+                    name="ocupation" 
+                    id="ocupation" 
+                    placeholder="Ocupation"
+                    [(ngModel)]="ocupation" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="ubication">Ubication</label>
+                <input 
+                    type="text" 
+                    name="ubication" 
+                    id="ubication" 
+                    placeholder="Ubication" 
+                    [(ngModel)]="ubication" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="photo">Photo</label>
+                <input 
+                    type="string" 
+                    name="photo" 
+                    id="photo" 
+                    placeholder="Insert URL of your photo" 
+                    [(ngModel)]="photo" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="banner">Banner</label>
+                <input 
+                    type="string" 
+                    name="banner" 
+                    id="banner" 
+                    placeholder="Insert URL of your banner" 
+                    [(ngModel)]="banner" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="github">Github</label>
+                <input 
+                    type="string" 
+                    name="github" 
+                    id="github" 
+                    placeholder="Github" 
+                    [(ngModel)]="github" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="linkedin">LinkedIn</label>
+                <input 
+                    type="string" 
+                    name="linkedin" 
+                    id="linkedin" 
+                    placeholder="LinkedIn" 
+                    [(ngModel)]="linkedin" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="whatsapp">Whatsapp</label>
+                <input 
+                    type="string" 
+                    name="whatsapp" 
+                    id="whatsapp" 
+                    placeholder="Whatsapp" 
+                    [(ngModel)]="whatsapp" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input 
+                    type="string" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Email" 
+                    [(ngModel)]="email" 
+                />
+            </div>
+            <div class="modal-footer">
+                <button 
+                    type="submit" 
+                    class="btn btn-success" 
+                    (click)="modal.close()"
+                >Save</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

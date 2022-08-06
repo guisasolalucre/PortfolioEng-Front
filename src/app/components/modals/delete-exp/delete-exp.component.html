@@ -1,0 +1,35 @@
+<i 
+    type="button" 
+    class="fa-solid fa-trash" 
+    id="toggleDeleteExp" 
+    (click)="modal.open(content)">
+</i>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Delete experience</h5>
+        <i class="fa-solid fa-xmark" (click)="modal.dismiss()"></i>
+    </div>
+    <div class="modal-body">
+        <form class="add-form" 
+            id="formul" 
+            #formDetailUser="ngForm" 
+            (ngSubmit)="onSubmit()"
+        >
+            <p>Are you sure you want to delete this experience item?</p>
+    
+            <div class="modal-footer">
+                <button 
+                    type="submit"
+                    class="btn btn-success"
+                    (click)="modal.close()"
+                >Delete</button>
+                <button
+                    class="btn btn-danger"
+                    (click)="modal.dismiss()"
+                >Back</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

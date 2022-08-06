@@ -1,0 +1,80 @@
+<i 
+    type="button" 
+    class="fa-solid fa-pencil" 
+    id="toggleEditEdu" 
+    (click)="modal.open(content)">
+
+</i>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Edit education</h5>
+        <i class="fa-solid fa-xmark" (click)="modal.dismiss()"></i>
+    </div>
+    <div class="modal-body">
+        <form class="add-form" 
+            id="formul" 
+            #formDetailUser="ngForm" 
+            (ngSubmit)="onSubmit(formDetailUser)"
+        >
+            <div class="form-control">
+                <label for="career">Career</label>
+                <input 
+                    type="text" 
+                    name="career" 
+                    id="career" 
+                    placeholder="Career" 
+                    [(ngModel)]="career" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="institution">Institution</label>
+                <input 
+                    type="text" 
+                    name="institution" 
+                    id="institution" 
+                    placeholder="Institution"
+                    [(ngModel)]="institution" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="ubication">Ubication</label>
+                <input 
+                    type="text" 
+                    name="ubication" 
+                    id="ubication" 
+                    placeholder="Ubication" 
+                    [(ngModel)]="ubication" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="start">Start</label>
+                <input 
+                    type="string" 
+                    name="start" 
+                    id="start" 
+                    placeholder="Start date" 
+                    [(ngModel)]="start" 
+                />
+            </div>
+            <div class="form-control">
+                <label for="finish">Finish</label>
+                <input 
+                    type="string" 
+                    name="finish" 
+                    id="finish" 
+                    placeholder="Finish date" 
+                    [(ngModel)]="finish" 
+                />
+            </div>
+            <div class="modal-footer">
+                <button 
+                    type="submit" 
+                    class="btn btn-success" 
+                    (click)="modal.close()"
+                >Save</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
