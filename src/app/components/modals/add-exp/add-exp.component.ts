@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { Experience } from 'src/app/model/Experience';
@@ -24,7 +23,6 @@ export class AddExpComponent implements OnInit {
 
   constructor(
     public modal:NgbModal,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +30,7 @@ export class AddExpComponent implements OnInit {
 
   onSubmit(formDetailUser: NgForm){
     const {job, company, ubication, start, finish, description} = this
-    const newExperience = {job, company, ubication, start, finish, description}
+    const newExperience : Experience = {job, company, ubication, start, finish, description}
     this.onAddExperience.emit(newExperience);
     formDetailUser.reset();
     //window.location.reload();

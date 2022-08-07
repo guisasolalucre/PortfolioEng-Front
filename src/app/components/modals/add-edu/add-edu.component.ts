@@ -31,7 +31,7 @@ export class AddEduComponent implements OnInit {
 
   onSubmit(formDetailUser: NgForm){
     const {career, institution, ubication, start, finish} = this
-    const newEducation = {career, institution, ubication, start, finish}
+    const newEducation : Education = {career, institution, ubication, start, finish}
     this.onAddEducation.emit(newEducation);
     formDetailUser.reset();
     //window.location.reload();

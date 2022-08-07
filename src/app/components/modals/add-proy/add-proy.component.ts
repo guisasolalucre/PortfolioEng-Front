@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { Proyect } from 'src/app/model/Proyect';
@@ -23,7 +22,6 @@ export class AddProyComponent implements OnInit {
 
   constructor(
     public modal:NgbModal,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +29,7 @@ export class AddProyComponent implements OnInit {
 
   onSubmit(formDetailUser: NgForm){
     const {name, url, description, start, finish} = this
-    const newProyect = {name, url, description, start, finish}
+    const newProyect : Proyect = {name, url, description, start, finish}
     this.onAddProyect.emit(newProyect);
     formDetailUser.reset();
     //window.location.reload();
