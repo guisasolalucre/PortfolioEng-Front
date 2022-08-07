@@ -35,7 +35,7 @@ export class AddExpComponent implements OnInit {
     const newExperience = {job, company, ubication, start, finish, description}
     this.onAddExperience.emit(newExperience);
     formDetailUser.reset();
-    window.location.reload();
+    //window.location.reload();
   }
 
 }

@@ -1,8 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Education } from 'src/app/model/Education';
-import { EducationService } from 'src/app/services/services-model/education.service';
 
 @Component({
   selector: 'app-delete-edu',
@@ -12,22 +10,19 @@ import { EducationService } from 'src/app/services/services-model/education.serv
 export class DeleteEduComponent implements OnInit {
 
   @Input() education!: Education;
+  @Output() onDeleteEducation: EventEmitter<Education> = new EventEmitter();
 
   constructor(
     public modal:NgbModal,
-    public educationService: EducationService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    this.educationService.deleteEducation(this.education).subscribe((data)=>(
-      console.log("deleted")
-    ));
+    this.onDeleteEducation.emit(this.education);
 
-    window.location.reload();
+    //window.location.reload();
   }
 
 }

@@ -34,7 +34,7 @@ export class AddProyComponent implements OnInit {
     const newProyect = {name, url, description, start, finish}
     this.onAddProyect.emit(newProyect);
     formDetailUser.reset();
-    window.location.reload();
+    //window.location.reload();
   }
 
 }

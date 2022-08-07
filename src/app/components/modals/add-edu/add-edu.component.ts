@@ -34,7 +34,7 @@ export class AddEduComponent implements OnInit {
     const newEducation = {career, institution, ubication, start, finish}
     this.onAddEducation.emit(newEducation);
     formDetailUser.reset();
-    window.location.reload();
+    //window.location.reload();
   }
 
 }

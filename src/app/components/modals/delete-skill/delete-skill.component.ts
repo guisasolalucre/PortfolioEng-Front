@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Skill } from 'src/app/model/Skill';
-import { SkillService } from 'src/app/services/services-model/skill.service';
 
 @Component({
   selector: 'app-delete-skill',
@@ -11,19 +10,17 @@ import { SkillService } from 'src/app/services/services-model/skill.service';
 export class DeleteSkillComponent implements OnInit {
 
   @Input() skill!: Skill
+  @Output() onDeleteSkill: EventEmitter<Skill> = new EventEmitter();
 
-  constructor(public modal:NgbModal,
-              public skillService: SkillService) { }
+  constructor(public modal:NgbModal) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    this.skillService.deleteSkill(this.skill).subscribe((data)=>(
-      console.log("deleted")
-    ));
+    this.onDeleteSkill.emit(this.skill);
 
-    window.location.reload();
+    //window.location.reload();
   }
 
 }

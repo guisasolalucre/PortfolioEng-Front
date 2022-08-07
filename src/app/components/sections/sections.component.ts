@@ -19,7 +19,7 @@ import { UiService } from 'src/app/services/ui.service';
 
 export class SectionsComponent implements OnInit {
 
-  // para que empiece mostrando acerca de
+  // starts showing about me tab
   id:String = "about";
 
   person: Person = new Person();
@@ -74,7 +74,7 @@ export class SectionsComponent implements OnInit {
     ));
   }
 
-  editEducacion(edu: Education){
+  editEducation(edu: Education){
     this.educationService.editEducation(edu).subscribe((data)=>(
       this.listEducation.push(data)
     ));

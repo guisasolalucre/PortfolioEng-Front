@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Proyect } from 'src/app/model/Proyect';
-import { ProyectService } from 'src/app/services/services-model/proyect.service';
 
 @Component({
   selector: 'app-delete-proy',
@@ -11,19 +10,17 @@ import { ProyectService } from 'src/app/services/services-model/proyect.service'
 export class DeleteProyComponent implements OnInit {
 
   @Input() proyect!: Proyect
+  @Output() onDeleteProyect: EventEmitter<Proyect> = new EventEmitter();
 
-  constructor(public modal:NgbModal,
-              public proyectService: ProyectService) { }
+  constructor(public modal:NgbModal) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    this.proyectService.deleteProyect(this.proyect).subscribe((data)=>(
-      console.log("deleted")
-    ));
+    this.onDeleteProyect.emit(this.proyect);
 
-    window.location.reload();
+    //window.location.reload();
   }
 
 }

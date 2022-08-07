@@ -31,7 +31,7 @@ export class AddSkillComponent implements OnInit {
     const newSkill = {name, percent}
     this.onAddSkill.emit(newSkill);
     formDetailUser.reset();
-    window.location.reload();
+    //window.location.reload();
   }
 
 }

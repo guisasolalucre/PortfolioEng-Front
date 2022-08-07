@@ -29,11 +29,13 @@
                             <app-edit-edu
                                 *ngIf="this.logged"
                                 [education]="this.education"
+                                (onEditEducation)="editEducation($event)"
                             ></app-edit-edu>
                             
                             <app-delete-edu
                                 *ngIf="this.logged"
                                 [education]="this.education"
+                                (onDeleteEducation)="deleteEducation($event)"
                             ></app-delete-edu>
                         </div>
                     </div>
@@ -61,11 +63,13 @@
                             <app-edit-exp
                                 *ngIf="this.logged"
                                 [experience]="this.experience"
+                                (onEditExperience)="editExperience($event)"
                             ></app-edit-exp>
 
                             <app-delete-exp
                                 *ngIf="this.logged"
                                 [experience]="this.experience"
+                                (onDeleteExperience)="deleteExperience($event)"
                             ></app-delete-exp>
 
                         </div>
@@ -94,11 +98,13 @@
                             <app-edit-skill
                                 *ngIf="this.logged"
                                 [skill]="this.skill"
+                                (onEditSkill)="editSkill($event)"
                             ></app-edit-skill>
 
                             <app-delete-skill
                                 *ngIf="this.logged"
                                 [skill]="this.skill"
+                                (onDeleteSkill)="deleteSkill($event)"
                             ></app-delete-skill>
 
                         </div>
@@ -129,11 +135,13 @@
                             <app-edit-proy
                                 *ngIf="this.logged"
                                 [proyect]="this.proyect"
+                                (onEditProyect)="editProyect($event)"
                             ></app-edit-proy>
 
                             <app-delete-proy
                                 *ngIf="this.logged"
                                 [proyect]="this.proyect"
+                                (onDeleteProyect)="deleteProyect($event)"
                             ></app-delete-proy>
 
                         </div>

@@ -1,10 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { Proyect } from 'src/app/model/Proyect';
-import { ProyectService } from 'src/app/services/services-model/proyect.service';
 
 @Component({
   selector: 'app-edit-proy',
@@ -14,7 +12,7 @@ import { ProyectService } from 'src/app/services/services-model/proyect.service'
 export class EditProyComponent implements OnInit {
 
   @Input() proyect!: Proyect;
-  listProyects: Proyect[] = [];
+  @Output() onEditProyect: EventEmitter<Proyect> = new EventEmitter();
 
   name:string ="";
   url:string="";
@@ -24,9 +22,7 @@ export class EditProyComponent implements OnInit {
   subscription?: Subscription;
 
   constructor(
-    public modal:NgbModal,
-    private proyectService: ProyectService,
-    private router: Router
+    public modal:NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -39,15 +35,13 @@ export class EditProyComponent implements OnInit {
     const description = this.description;
     const start = this.start;
     const finish = this.finish;
-    const edit = { id, name, url, description, start, finish };
+    const editProy = { id, name, url, description, start, finish };
 
-    this.proyectService.editProyect(edit).subscribe((data)=>(
-      console.log(data)
-    ));
+    this.onEditProyect.emit(editProy)
     
     formDetailUser.reset();
 
-    window.location.reload();
+    //window.location.reload();
   }
 
 }

@@ -1,10 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { Experience } from 'src/app/model/Experience';
-import { ExperienceService } from 'src/app/services/services-model/experience.service';
 
 @Component({
   selector: 'app-edit-exp',
@@ -14,7 +12,7 @@ import { ExperienceService } from 'src/app/services/services-model/experience.se
 export class EditExpComponent implements OnInit {
 
   @Input() experience!: Experience;
-  listExperience: Experience[] = [];
+  @Output() onEditExperience: EventEmitter<Experience> = new EventEmitter();
 
   job:string ="";
   company:string="";
@@ -25,9 +23,7 @@ export class EditExpComponent implements OnInit {
   subscription?: Subscription;
 
   constructor(
-    public modal:NgbModal,
-    private experienceService: ExperienceService,
-    private router: Router
+    public modal:NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -41,15 +37,13 @@ export class EditExpComponent implements OnInit {
     const start = this.start;
     const finish = this.finish;
     const description = this.description;
-    const editado = { id, job, company, ubication, start, finish, description };
+    const editExp : Experience = { id, job, company, ubication, start, finish, description };
 
-    this.experienceService.editExperience(editado).subscribe((data)=>(
-      console.log(data)
-    ));
+    this.onEditExperience.emit(editExp)
     
     formDetailUser.reset();
 
-    window.location.reload();
+    //window.location.reload();
   }
 
 }
