@@ -14,7 +14,7 @@
     <div class="modal-body">
         <form class="add-form" 
             id="formul" 
-            #formDetailUser="ngForm" 
+            #formDetailUser="ngForm"
             (ngSubmit)="onSubmit()"
         >
             <p>Are you sure you want to delete this education item?</p>
@@ -23,7 +23,7 @@
                 <button 
                     type="submit"
                     class="btn btn-success"
-                    (click)="onSubmit()"
+                    (click)="modal.close()"
                 >Delete</button>
                 <button
                     class="btn btn-danger"

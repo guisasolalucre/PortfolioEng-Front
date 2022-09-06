@@ -22,7 +22,7 @@ export class DeleteEduComponent implements OnInit {
   onSubmit(){
     this.onDeleteEducation.emit(this.education);
 
-    //window.location.reload();
+    window.location.reload();
   }
 
 }

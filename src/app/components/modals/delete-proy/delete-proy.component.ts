@@ -20,7 +20,7 @@ export class DeleteProyComponent implements OnInit {
   onSubmit(){
     this.onDeleteProyect.emit(this.proyect);
 
-    //window.location.reload();
+    window.location.reload();
   }
 
 }

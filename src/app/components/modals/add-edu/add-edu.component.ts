@@ -22,8 +22,7 @@ export class AddEduComponent implements OnInit {
   subscription?: Subscription;
 
   constructor(
-    public modal:NgbModal,
-    private router: Router
+    public modal:NgbModal
   ) { }
 
   ngOnInit(): void {

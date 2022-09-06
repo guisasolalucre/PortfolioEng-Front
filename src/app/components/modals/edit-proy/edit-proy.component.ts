@@ -41,7 +41,7 @@ export class EditProyComponent implements OnInit {
     
     formDetailUser.reset();
 
-    //window.location.reload();
+    window.location.reload();
   }
 
 }

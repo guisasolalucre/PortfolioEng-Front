@@ -63,7 +63,7 @@ export class EditInfoComponent implements OnInit {
     
     formDetailUser.reset();
 
-    //window.location.reload();
+    window.location.reload();
   }
 
 }

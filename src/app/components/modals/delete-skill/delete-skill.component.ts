@@ -20,7 +20,7 @@ export class DeleteSkillComponent implements OnInit {
   onSubmit(){
     this.onDeleteSkill.emit(this.skill);
 
-    //window.location.reload();
+    window.location.reload();
   }
 
 }

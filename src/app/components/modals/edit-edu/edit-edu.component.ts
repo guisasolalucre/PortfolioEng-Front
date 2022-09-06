@@ -41,7 +41,7 @@ export class EditEduComponent implements OnInit {
     
     formDetailUser.reset();
 
-    //window.location.reload();
+    window.location.reload();
   }
 
 }

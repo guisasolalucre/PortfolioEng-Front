@@ -22,7 +22,7 @@ export class DeleteExpComponent implements OnInit {
   onSubmit(){
     this.onDeleteExperience.emit(this.experience);
 
-    //window.location.reload();
+    window.location.reload();
   }
 
 }
